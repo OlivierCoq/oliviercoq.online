@@ -1,0 +1,11 @@
+@import "~bootstrap/scss/bootstrap"; 
+@import "./variables.scss";
+
+.hoverable {
+    &:hover { cursor: pointer; }
+}
+
+//Shadow
+.shadow-1 {
+    box-shadow: 0px 2px 18px #22222836;
+}
