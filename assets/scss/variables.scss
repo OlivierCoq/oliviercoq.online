@@ -1,3 +1,20 @@
 // Fonts
+// .lato { font-family: 'Lato', sans-serif; } 
+.barlow { font-family: 'Barlow Condensed', sans-serif; }
+.montserrat { font-family: 'Montserrat', sans-serif; }
 
-.lato { font-family: 'Lato', sans-serif; } 
+// Colors
+$color_1: #e8eef1;
+$color_2: #43b0f1;
+$color_3: #057dcd;
+$color_4: #1e3d58;
+
+.color-1 { color: $color_1; }
+.color-2 { color: $color_2; }
+.color-3 { color: $color_3; }
+.color-4 { color: $color_4; }
+
+.bg-color-1 { background-color: $color_1; }
+.bg-color-2 { background-color: $color_2; }
+.bg-color-3 { background-color: $color_3; }
+.bg-color-4 { background-color: $color_4; }
