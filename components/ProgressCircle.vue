@@ -59,6 +59,10 @@ export default {
             background-color: white;
             content: " ";
         }
+
+        @media(max-width: 768px) {
+            margin-left: -0.4rem;
+        }
         span {
             position: absolute;
             line-height: 5em;
@@ -73,7 +77,7 @@ export default {
             border-radius: 50%;
             width: 5em;
             height: 5em;
-            position: absolute; /* needed for clipping */
+            position: absolute; /* clipping */
             clip: rect(0, 5em, 5em, 2.5em); /* clips the whole left half*/ 
         }
     }
@@ -82,7 +86,7 @@ export default {
             clip: rect(auto,auto,auto,auto);
 
             .first50-bar {
-                position: absolute; /*needed for clipping*/
+                position: absolute; /*clipping*/
                 clip: rect(0, 5em, 5em, 2.5em);
                 background-color: $color-2;
                 border-radius: 50%;
@@ -93,17 +97,14 @@ export default {
     }
 
     .value-bar {
-    /*This is an overlayed square, that is made round with the border radius,
-    then it is cut to display only the left half, then rotated clockwise
-    to escape the outer clipping path.*/ 
-    position: absolute; /*needed for clipping*/
-    clip: rect(0, 2.5em, 5em, 0);
-    width: 5em;
-    height: 5em;
-    border-radius: 50%;
-    border: 0.45em solid $color-2; /*The border is 0.35 but making it larger removes visual artifacts */
-    /*background-color: #4D642D;*/ /* for debug */
-    box-sizing: border-box;
+        position: absolute; /*  clipping*/
+        clip: rect(0, 2.5em, 5em, 0);
+        width: 5em;
+        height: 5em;
+        border-radius: 50%;
+        border: 0.45em solid $color-2; /*The border is 0.35 but making it larger removes visual artifacts */
+        /*background-color: #4D642D;*/ /* for debug */
+        box-sizing: border-box;
     
     }
     .progress-circle:not(.over50) .first50-bar{ display: none; }

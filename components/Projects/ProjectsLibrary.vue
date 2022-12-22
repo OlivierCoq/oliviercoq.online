@@ -2,8 +2,8 @@
   <div id="project_library">
     <project-viewer v-if="main_project" :project="main_project" @toggleoff="main_project = false" />
     <div v-show="!main_project" class="row project_grid">
-        <div v-for="project, a in projects" :key="a" class="col-sm-12 col-md-3">
-            <div class="project shadow-1 position-relative" :style="{ backgroundImage: 'url(' + project.preview + ')' }">
+        <div v-for="project, a in projects" :key="a" class="col-sm-6 col-md-3">
+            <div class="project shadow-1 position-relative my-3 my-md-0" :style="{ backgroundImage: 'url(' + project.preview + ')' }">
                 <div class="discover position-absolute hoverable d-flex flex-column justify-content-center align-items-center" @click="select(project)">
                     <i class="fa-solid fa-up-right-and-down-left-from-center text-light fa-2x"></i>
                 </div>
@@ -49,6 +49,11 @@ export default {
                     .discover { opacity: 1; transition-duration: 0.5s; }
                 }
 
+                @media(max-width: 1800px) {
+                    height: 260px;
+                    width: 260px;
+                }
+
                 .discover {
                     height: 340px;
                     width: 340px;
@@ -57,6 +62,11 @@ export default {
                     top: 10px;
                     opacity: 0;
                     transition-duration: 0.5s;
+
+                    @media(max-width: 1800px) {
+                        height: 240px;
+                        width: 240px;
+                    }
                 }
             }
         }

@@ -1,0 +1,72 @@
+{
+  "_from": "hamburgers",
+  "_id": "hamburgers@1.2.1",
+  "_inBundle": false,
+  "_integrity": "sha512-uFuVVF7/MeUtRWrA+S1FGGo4iVi7RgPzZAmljBnSeDh4snOZzaQ+oB6CI1m4vKD5RGz9s70ufgiJLxgivqA26Q==",
+  "_location": "/hamburgers",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "hamburgers",
+    "name": "hamburgers",
+    "escapedName": "hamburgers",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/hamburgers/-/hamburgers-1.2.1.tgz",
+  "_shasum": "0649907688335dee3d3d248c4c7ac88351527eb0",
+  "_spec": "hamburgers",
+  "_where": "/Applications/MAMP/htdocs/www/v5.oliviercoq.online/oliviercoq.online",
+  "author": {
+    "name": "Jonathan Suh",
+    "email": "hello@jonsuh.com",
+    "url": "https://jonsuh.com/hamburgers"
+  },
+  "bugs": {
+    "url": "https://github.com/jonsuh/hamburgers/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Collection of tasty CSS-animated hamburger icons. Includes Sass files (modular and customizable), so cook up your own hamburger.",
+  "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-csscomb": "^3.0.8",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^3.2.1",
+    "gulp-sourcemaps": "^2.6.4"
+  },
+  "eyeglass": {
+    "needs": "*",
+    "exports": "eyeglass-exports.js"
+  },
+  "homepage": "https://jonsuh.com/hamburgers",
+  "keywords": [
+    "css",
+    "hamburger",
+    "hamburgers",
+    "eyeglass-module",
+    "menu",
+    "sass",
+    "scss"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "hamburgers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonsuh/hamburgers.git"
+  },
+  "version": "1.2.1"
+}

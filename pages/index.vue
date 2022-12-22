@@ -72,18 +72,18 @@
               <div class="row">
                   <div class="col-12">
                       <div class="mb-3">
-                          <button class="btn btn-md btn-primary my-3 w-100" @click.prevent="submit">
-                              reach out!
+                          <button class="btn btn-md btn-primary my-3 w-100 montserrat" @click.prevent="submit">
+                              Reach out!
                           </button>
                       </div>
                   </div>
               </div>
               <div class="row">
                   <div class="col-12">
-                      <div v-if="error" class="alert alert-danger my-3">
+                      <div v-if="contact.error" class="alert alert-danger my-3">
                           {{ contact.error }}
                       </div>
-                      <div v-if="success" class="alert alert-success my-3">
+                      <div v-if="contact.success" class="alert alert-success my-3">
                           {{ contact.success }}
                       </div>
                   </div>
@@ -277,13 +277,13 @@ export default {
       const thisObj = this, vals = Object.values(this.contact.postObj)
       let all_good 
       vals.forEach((val) => {
-          if(!val.length) { all_good = false; this.contact.error = `Oops! Plese check all fields; there might be something missing here.` }
+          if(!val.length) { all_good = false; this.contact.error = `Oops! Plese check all fields; there appears to be something missing here.` }
           else {
               all_good = true
               this.contact.error = false 
           }
       })
-      if((all_good !== undefined) && (!this.error)) {
+      if((all_good !== undefined) && (!this.contact.error)) {
           // send mail function:  
           emailjs.sendForm('contact_service', 'contact_form', this.$refs.contact_form, this.contact.email_js_key)
           .then(()=> {

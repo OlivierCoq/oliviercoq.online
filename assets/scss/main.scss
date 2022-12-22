@@ -1,10 +1,15 @@
 @import "~bootstrap/scss/bootstrap"; 
+@import "./libraries/hamburgers/dist/hamburgers.min.css";
 @import "./variables.scss";
 
 body { margin: 0; }
 .ctr-body {
     width: 85%;
     overflow-x: hidden;
+
+    @media(max-width: 768px) {
+        width: 100%;
+    }
 }
 .hoverable { &:hover { cursor: pointer; } }
 .shadow-1 { box-shadow: 0px 2px 18px #22222836; }
