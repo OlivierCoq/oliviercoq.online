@@ -28,7 +28,7 @@ export default {
         site_links: [
           { name: 'About', link: '#about', blank: false, ref:'about' },
           { name: 'Work', link: '#work', blank: false, ref: 'work' },
-          { name: 'My Resume', link: 'https://firebasestorage.googleapis.com/v0/b/oliviercoq-online.appspot.com/o/Olivier%20Coq%20-%20Web%20Development%20Resume_2022.pdf?alt=media&token=309be0f8-d8bb-4aef-9ce2-ae1bb82e649e', blank: true },
+          { name: 'My Resume', link: 'https://firebasestorage.googleapis.com/v0/b/oliviercoq-online.appspot.com/o/Olivier%20Coq%20-%20Web%20Development%20Resume_2022.pdf?alt=media&token=fd9f9d8a-1c22-44e6-bd25-e7224dc012ad', blank: true },
           { name: 'Contact Me', link: '#contact', blank: false, ref:'contact' }
         ]
       }

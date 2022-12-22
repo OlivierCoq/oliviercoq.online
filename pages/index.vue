@@ -29,7 +29,11 @@
       </div>
     </div>
 
-    <div id="work" ref="work"></div>
+    <div id="work" ref="work" class="bg-color-3 p-3 p-md-5">
+      <h2 class="text-light text-uppercase fw-bold barlow my-3">My Projects</h2>
+      <p class="text-light montserrat">Here are some of my favorite projects I've had the pleasure and honor of working on over the years.</p>
+      <ProjectsLibrary />
+    </div>
 
     <div id="contact" ref="contact"></div>
 
@@ -98,6 +102,52 @@ export default {
           icon: 'fa-solid fa-atom',
           percentage: 25
         },
+      ],
+      projects: [
+        {
+          name: 'nSight',
+          full_screenshot: '',
+          screenshots: [],
+          description: ``,
+          stack: [
+            { name: 'HTML5', icon: 'fa-brands fa-html5' },
+            { name: 'JS', icon: 'fa-brands fa-js' },
+            { name: 'Vue', icon: 'fa-brands fa-vuejs' },
+          ]
+        },
+        {
+          name: 'ValCal',
+          full_screenshot: '',
+          screenshots: [],
+          description: ``,
+          stack: [
+            { name: 'HTML5', icon: 'fa-brands fa-html5' },
+            { name: 'JS', icon: 'fa-brands fa-js' },
+            { name: 'Vue', icon: 'fa-brands fa-vuejs' },
+          ]
+        },
+        {
+          name: 'OliVyae',
+          full_screenshot: '',
+          screenshots: [],
+          description: ``,
+          stack: [
+            { name: 'HTML5', icon: 'fa-brands fa-html5' },
+            { name: 'JS', icon: 'fa-brands fa-js' },
+            { name: 'Vue', icon: 'fa-brands fa-vuejs' },
+          ]
+        },
+        {
+          name: 'StackNotes',
+          full_screenshot: '',
+          screenshots: [],
+          description: ``,
+          stack: [
+            { name: 'HTML5', icon: 'fa-brands fa-html5' },
+            { name: 'JS', icon: 'fa-brands fa-js' },
+            { name: 'Vue', icon: 'fa-brands fa-vuejs' },
+          ]
+        }
       ]
     }
   },

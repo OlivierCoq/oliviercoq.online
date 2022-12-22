@@ -1,6 +1,8 @@
 <template>
   <div class="progress-circle position-relative float-left" :class="skill.percentage > 50 ? `over50 p${skill.percentage}`: `p${skill.percentage}` ">
-    <span class="position-absolute pt-2"><i class="fa-2x" :class="skill.icon"></i></span>
+    <span class="position-absolute pt-2">
+        <i class="fa-2x" :class="skill.icon"></i>
+    </span>
     <!-- <span class="position-absolute">{{ skill.percentage }}%</span> -->
     <div class="left-half-clipper">
         <div class="first50-bar"></div>
@@ -21,7 +23,7 @@ export default {
     },
     methods: {
         setup() {
-            let value_bar = this.$refs.value_bar
+            let value_bar = this.$refs.value_bar, tooltip_span = this.$refs.tooltip_span
             value_bar.style.display = 'block'
 
             if(this.skill.percentage <= 50) { value_bar.style.transform = `rotate(${this.skill.percentage * 3.6}deg)` }
