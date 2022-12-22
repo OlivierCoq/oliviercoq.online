@@ -1,9 +1,7 @@
 <template>
   <div id="navbar" class="navbar bg-color-4 position-fixed d-flex flex-column justify-content-start align-items-start">
     <div class="w-100 p-3 mb-3">
-      <a href="/">
-        <img src="~/assets/img/logo-white-nav-edit.png" alt="Logo" class="w-100"/>
-      </a>
+      <img src="~/assets/img/logo-white-nav-edit.png" alt="Logo" class="w-100 hoverable" @click="goHome"/>
     </div>
     <div v-for="item, a in site_links" :key="a" class="w-100 px-4 py-3 hoverable">
       <div class="text-light montserrat text-uppercase w-100 text-decoration-none hoverable fs-3 fw-bolder" @click="goTo(item)">
@@ -36,6 +34,9 @@ export default {
       }
     },
     methods: {
+      goHome(){
+        document.getElementById('home_hero').scrollIntoView()
+      },
       goTo(item) {
         if(item.blank) { window.open(item.link), '_blank' }
         else {

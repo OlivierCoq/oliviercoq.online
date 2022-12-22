@@ -1,6 +1,7 @@
 <template>
  <div id="home" class="ctr-body float-end d-flex flex-column">
     <HomeHero/> 
+
     <div id="about" ref="about" class="bg-color-1 w-100">
       <div class="row">
         <div class="col-sm-12 col-md-6 text-start">
@@ -17,7 +18,11 @@
         <div class="col-sm-12 col-md-6">
           <div class="p-3 p-md-5">
             <div class="row">
-              <div class="col"></div>
+              <div v-for="skill, a in skills" :key="a" class="col-2">
+                <div class="ctr-skill mb-3 mb-md-5">
+                  <ProgressCircle :skill="skill" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -49,6 +54,16 @@ export default {
           percentage: 100
         },
         {
+          name: 'Sass',
+          icon: 'fa-brands fa-sass',
+          percentage: 100
+        },
+        {
+          name: 'Less',
+          icon: 'fa-brands fa-less',
+          percentage: 75
+        },
+        {
           name: 'JavaScript',
           icon: 'fa-brands fa-js',
           percentage: 100
@@ -56,12 +71,32 @@ export default {
         {
           name: 'VueJS',
           icon: 'fa-brands fa-vuejs',
-          percentage: 90
+          percentage: 95
         },
         {
           name: 'React',
           icon: 'fa-brands fa-react',
-          percentage: 60
+          percentage: 75
+        },
+        {
+          name: 'Node',
+          icon: 'fa-brands fa-node-js',
+          percentage: 80
+        },
+        {
+          name: 'Grunt',
+          icon: 'fa-brands fa-grunt',
+          percentage: 100
+        },
+        {
+          name: 'Git',
+          icon: 'fa-brands fa-git',
+          percentage: 100
+        },
+        {
+          name: 'Electron',
+          icon: 'fa-solid fa-atom',
+          percentage: 25
         },
       ]
     }
@@ -71,5 +106,9 @@ export default {
 <style lang="scss">
   .ctr-hero {
     // height: 100vh;
+  }
+  .ctr-skill {
+    // width: 145px;
+    // height: 145px;
   }
 </style>
