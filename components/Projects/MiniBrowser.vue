@@ -1,5 +1,5 @@
 <template>
-    <div class="mini_browser shadow-1 m-4 bg-light p-0">
+    <div class="mini_browser shadow-1 m-md-4 bg-light p-0">
         <div class="head w-100 p-0 d-flex flex-row justify-content-center align-items-end">
             <div class="ctr-nav_btns d-flex flex-row justify-content-center align-items-center">
                 <span class="dot close mx-1"></span>
@@ -14,7 +14,7 @@
             <div class="head_body"></div>
         </div>
         <div class="page">
-            <img :src="project.full_screenshot" alt="" class="w-100">
+            <img :src="project.full_screenshot" alt="Screenshot" class="w-100">
         </div>
     </div>
 </template>
@@ -33,6 +33,10 @@ export default {
     .mini_browser {
         height: 400px;
         width: 500px;
+
+        @media(max-width: 768px) {
+            width: 100%;
+        }
 
         .head {
             background-color: #F8F9FA;

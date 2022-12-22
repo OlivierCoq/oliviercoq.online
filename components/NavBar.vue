@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div v-show="menu_open" :key="comp_key" class="row mobile_menu position-fixed left-0 right-0" ref="mobile_menu">
+    <div v-show="menu_open" :key="comp_key" class="row mobile_menu position-fixed left-0 right-0 d-md-none" ref="mobile_menu">
       <div class="col-12 pt-5">
         <div v-for="item, a in site_links" :key="a" class="w-100 px-4 py-3 hoverable">
           <div class="text-light montserrat text-uppercase w-100 text-decoration-none hoverable tab_name fw-bolder" @click="goTo(item)">
