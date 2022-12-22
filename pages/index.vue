@@ -35,12 +35,68 @@
       <ProjectsLibrary :projects="projects" />
     </div>
 
-    <div id="contact" ref="contact"></div>
+    <div id="contact" ref="contact" class="bg-color-4 p-3 p-md-5">
+      <h2 class="text-light text-uppercase fw-bold barlow my-3">Contact Me!</h2>
+      <form ref="contact_form">
+          <div class="container">
+              <div class="row">
+                  <div class="col-6">
+                      <div class="mb-3">
+                          <label class="form-label text-light lato text-uppercase">Name</label>
+                          <input class="form-control" type="text" name="user_name" v-model="contact.postObj.user_name" placeholder="Joanna Smith" required @keydown="error = false">
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="mb-3">
+                          <label class="form-label text-light lato text-uppercase barlow">Email</label>
+                          <input class="form-control" type="email" name="user_email" v-model="contact.postObj.user_email" placeholder="joanna@example.com" required @keydown="error = false">
+                      </div>
+                  </div>
+              </div>
+              <!-- <div class="row">
+                  <div class="col-12">
+                      <div class="mb-3">
+                          <label class="form-label text-light lato text-uppercase">Subject</label>
+                          <input class="form-control" type="text" v-model="postObj.subject" placeholder="Your music possesed my cat!" required @keydown="error = false">
+                      </div>
+                  </div>
+              </div> -->
+              <div class="row">
+                  <div class="col-12">
+                      <div class="mb-3">
+                          <label class="form-label text-light lato text-uppercase barlow">Message:</label>
+                          <textarea name="message" id="" cols="30" rows="10" class="form-control ta" v-model="contact.postObj.message" required @keydown="contact.error = false"></textarea>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-12">
+                      <div class="mb-3">
+                          <button class="btn btn-md btn-primary my-3 w-100" @click.prevent="submit">
+                              reach out!
+                          </button>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-12">
+                      <div v-if="error" class="alert alert-danger my-3">
+                          {{ contact.error }}
+                      </div>
+                      <div v-if="success" class="alert alert-success my-3">
+                          {{ contact.success }}
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </form>
+    </div>
 
  </div>
 </template>
 
 <script>
+import emailjs from '@emailjs/browser'
 export default {
   name: 'IndexPage',
   layout: 'default',
@@ -182,18 +238,70 @@ export default {
         },
         {
           name: 'StackNotes',
-          full_screenshot: '',
-          screenshots: [],
-          description: ``,
+          preview: 'https://firebasestorage.googleapis.com/v0/b/oliviercoq-online.appspot.com/o/projects%2Fstack-notes%2Fpreview_logo.jpg?alt=media&token=918029dc-1d8b-44e7-9786-1e98e45ab113',
+          full_screenshot: 'https://firebasestorage.googleapis.com/v0/b/oliviercoq-online.appspot.com/o/projects%2Fstack-notes%2Ffull_page_screenshot.png?alt=media&token=3d11904f-6b88-432b-a74f-c7809a6f0c25',
+          screenshots: [
+            'https://firebasestorage.googleapis.com/v0/b/oliviercoq-online.appspot.com/o/projects%2Fstack-notes%2Fscreenshot-1.png?alt=media&token=2c6ec06b-1f08-4d4b-be20-2dbd0b5ecf9a',
+            'https://firebasestorage.googleapis.com/v0/b/oliviercoq-online.appspot.com/o/projects%2Fstack-notes%2Fscreenshot-2.png?alt=media&token=1948263b-4ab2-4334-9d68-b6d3476c9bba',
+            'https://firebasestorage.googleapis.com/v0/b/oliviercoq-online.appspot.com/o/projects%2Fstack-notes%2Fscreenshot-3.png?alt=media&token=a80b8457-f2c6-4856-9f8c-aff4a5a6978c'
+          ],
+          description: `This is a collab project with a fellow developer and friend. This is my first dip with Electron, and the vast majority was written in JavaScript. This application
+          allows computer science students to write notes and quickly run code in an IDE. A note can have as many IDEs as necessary, as well as a select choice of languages to code in. This allows users to test code in
+          real time, while learning. This project is still under development, but a test version was used by several students at the University of South Florida.`,
           stack: [
             { name: 'HTML5', icon: 'fa-brands fa-html5' },
             { name: 'JS', icon: 'fa-brands fa-js' },
             { name: 'Vue', icon: 'fa-brands fa-vuejs' },
-          ]
+          ],
+          link: 'https://www.stacknotes.tech/',
+          github: 'https://github.com/OlivierCoq/stack-notes'
         }
-      ]
+      ],
+      contact: {
+        email_js_key: 'flA3GCmqOsay_4biB',
+        error: false,
+        success: false,
+        postObj: {
+            user_name: '',
+            user_email: '',
+            message: '',
+        }
+      }
     }
   },
+  created(){
+    emailjs.init(this.contact.email_js_key)
+  },
+  methods: {
+    submit(){
+      const thisObj = this, vals = Object.values(this.contact.postObj)
+      let all_good 
+      vals.forEach((val) => {
+          if(!val.length) { all_good = false; this.contact.error = `Oops! Plese check all fields; there might be something missing here.` }
+          else {
+              all_good = true
+              this.contact.error = false 
+          }
+      })
+      if((all_good !== undefined) && (!this.error)) {
+          // send mail function:  
+          emailjs.sendForm('contact_service', 'contact_form', this.$refs.contact_form, this.contact.email_js_key)
+          .then(()=> {
+              // console.log('SUCCESS!', result.text)
+              thisObj.contact.postObj = {
+                  user_name: '',
+                  user_email: '',
+                  message: '',
+              }
+              thisObj.contact.success = `Sent. Thanks for reaching out! I will get back to you as soon as possible.`
+          })
+          .catch((error) => {
+              thisObj.contact.error = `Uh oh. Server error. Please try again.`
+              console.log('FAILED...', error.text)
+          })
+      }
+  }
+  }
 }
 </script>
 <style lang="scss">
